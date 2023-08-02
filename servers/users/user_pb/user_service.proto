@@ -1,0 +1,46 @@
+syntax = "proto3";
+package user.service.v1;
+option go_package = "github.com/yourorg/yourprotos/gen/go/your/service/v1";
+
+message StringMessage {
+  string value = 1;
+}
+
+enum UserLoginType {
+  FACEBOOK = 0;
+  MOBILE = 1;
+  GITHUB = 2;
+}
+
+enum RoleType {
+  ADMIN = 0 ;
+  CUSTOMER = 1;
+}
+
+message UserRole {
+  string name = 1;
+  RoleType role_type = 2;
+  string description = 3;
+}
+
+
+message role_resource_access {
+  string resource_name = 1;
+
+}
+
+message UserObject {
+  string user_name = 1;
+  int32 age = 2;
+  string address = 3;
+  string user_type = 4;
+  UserLoginType login_type = 5;
+  string uuid = 6;
+
+}
+
+service YourService {
+  rpc Echo(StringMessage) returns (StringMessage) {}
+
+  rpc GetUserById() returns
+}
